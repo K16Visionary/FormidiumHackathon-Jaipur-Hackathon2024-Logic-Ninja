@@ -16,4 +16,9 @@ Database: MySQL
 Libraries: mysql.connector, bcrypt, Flask-Limiter, dotenv, SimpleNLP (or a similar NLP module)
 Frontend: HTML/CSS (using Jinja2 templating in Flask)
 
+Technical Stack
 
+Framework: Flask
+Database: MySQL
+Libraries: mysql.connector, bcrypt, Flask-Limiter, dotenv, SimpleNLP (or a similar NLP module)
+Frontend: HTML/CSS (using Jinja2 templating in Flask)
