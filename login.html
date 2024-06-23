@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .accoutn_main {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            overflow: hidden;
+        }
+
+        .accoutn_main .video {
+            position: absolute;
+            z-index: -100;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .form_area {
+            width: 100%;
+            height: 100%;
+            /* Removed background property */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          
+
+          .main_con {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 50px;
+            border-radius: 10px;
+            width: 700px; /* Adjust width here */
+            max-width: 500px;
+          }
+          
+
+        .headline {
+            text-align: center;
+            color: #fff;
+            margin: 20px 0;
+        }
+
+        .form_con {
+            position: relative;
+            padding: 30px;
+            width: 100%;
+        }
+
+        .form_con h2 {
+            margin: 0 30px;
+            padding: 0;
+            color: #fff;
+            text-align: center;
+        }
+
+        .input-box {
+            position: relative;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 10px 0;
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 30px;
+            border: none;
+            border-bottom: 1px solid #fff;
+            outline: none;
+            background: transparent;
+        }
+
+        .input-box label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px 0;
+            font-size: 15px;
+            color: #fff;
+            pointer-events: none;
+            transition: .5s;
+        }
+
+        .input-box input:focus + label,
+        .input-box input:valid + label {
+            top: -25px;
+            left: 0;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .button {
+            text-align: center;
+        }
+
+        .button button {
+            font-size: 20px;
+            padding: 8px 20px;
+            background: none;
+            border: 2px solid #fff;
+            cursor: pointer;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .button button:hover {
+            background: #DDDDDD;
+            color: #1661C2;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #DDDDDD, 0 0 25px #DDDDDD, 0 0 50px #DDDDDD, 0 0 100px #DDDDDD;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .text-center {
+            text-align: center;
+            color: #fff;
+            margin: 15px 0;
+            cursor: pointer;
+        }
+        .accoutn_main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure full viewport height */
+            background-image: url('https://s2.ezgif.com/tmp/ezgif-2-2585a57854.gif'); /* Background image */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* responsive media query */
+        @media (max-width: 1080px) {
+            .video {
+                display: none;
+            }
+            .accoutn_main {
+                width: 100%;
+                height: 100%;
+                background: url(../image/m-d-playing.jpg) no-repeat;
+                background-size: cover;
+            }
+        }
+
+        @media (max-width: 665px) {
+            .video {
+                display: none;
+            }
+            .accoutn_main {
+                background: #1661C2;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .video {
+                display: none;
+            }
+            .accoutn_main {
+                background: #1661C2;
+            }
+            .main_con {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="accoutn_main">
+       
+
+        <div class="form_area">
+            <div class="main_con">
+                <div class="headline"></div>
+
+                <div class="form_con">
+                    <div class="log_form">
+                        <h2>Login Now!!</h2>
+                        <form action="/login" method="POST">
+                            <div class="input-box">
+                                <input type="email" name="email" required>
+                                <label>Email</label>
+                            </div>
+                            <div class="input-box">
+                                <input type="password" name="password" required>
+                                <label>Password</label>
+                            </div>
+                            <div class="button">
+                                <button type="submit">LOGIN</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Registration form -->
+                    <div class="reg_form hidden">
+                        <h2>Register Now!!</h2>
+                        <form action="/register" method="POST">
+                            <div class="input-box">
+                                <input type="email" name="email" required>
+                                <label>Email</label>
+                            </div>
+                            <div class="input-box">
+                                <input type="password" name="password" required>
+                                <label>Password</label>
+                            </div>
+                            <div class="button">
+                                <button type="submit">REGISTER</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="text-center">
+                        <span id="action">Switch Mode</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $("#action").click(function(){
+            $(".log_form, .reg_form").toggle(1200);
+        });
+        var encryptedData = "HYK{ym1x_1x_rd_x3hw3y_kq4l}"; // Examine this variable closely
+
+    </script>
+</body>
+</html>
